@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #052e2b, #021b1a);
+  color: #ffffff;
+}
+
+/* HEADER */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: #021b1a;
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  color: #d4af37;
+}
+
+.logo-area img {
+  width: 40px;
+}
+
+.search-area input {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+.menu {
+  font-size: 1.5rem;
+  color: #d4af37;
+}
+
+/* HERO */
+.hero {
+  height: 300px;
+  background: linear-gradient(to right, #063f3b, #021b1a);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.hero-text {
+  text-align: center;
+  flex: 1;
+}
+
+.hero h1 {
+  color: #d4af37;
+  font-size: 2.2rem;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #eee;
+}
+
+.arrow {
+  background: none;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  font-size: 2rem;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+/* TYPES */
+.types, .templates, .about {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+h2 {
+  color: #d4af37;
+  margin-bottom: 30px;
+}
+
+.type-grid, .template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.type-card, .template-card {
+  height: 120px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(212,175,55,0.4);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-weight: bold;
+}
+
+/* ABOUT */
+.about p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* FOOTER */
+footer {
+  background: #021b1a;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(212,175,55,0.3);
+}
+
+.socials span {
+  margin: 0 8px;
+  font-size: 1.3rem;
+}
