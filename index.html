@@ -1,82 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Digital Invites | Premium Invitations</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Invite | Premium Invitations</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#0f3d2e;          /* premium green */
+      --green-light:#145c44;
+      --gold:#d4af37;           /* gold text */
+      --bg:#0b1f18;
+      --white:#f5f5f5;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--white);
+    }
+
+    /* ===== HEADER ===== */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 60px;
+      background:linear-gradient(90deg,var(--green),var(--green-light));
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-family:'Playfair Display',serif;
+      font-size:26px;
+      font-weight:700;
+      color:var(--gold);
+      letter-spacing:1px;
+    }
+
+    nav a{
+      color:var(--white);
+      margin-left:28px;
+      text-decoration:none;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:var(--gold);
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      padding:100px 60px;
+      text-align:center;
+      background:radial-gradient(circle at top, #124b39, var(--bg));
+    }
+
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:52px;
+      color:var(--gold);
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:700px;
+      margin:0 auto 40px;
+      color:#ddd;
+    }
+
+    .hero button{
+      padding:14px 34px;
+      background:var(--gold);
+      border:none;
+      color:#000;
+      font-size:16px;
+      font-weight:600;
+      border-radius:30px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .hero button:hover{
+      background:#b8962e;
+    }
+
+    /* ===== CATEGORIES ===== */
+    .section{
+      padding:80px 60px;
+    }
+
+    .section h2{
+      text-align:center;
+      font-family:'Playfair Display',serif;
+      font-size:38px;
+      color:var(--gold);
+      margin-bottom:50px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,#123f31,#0c2a20);
+      border-radius:20px;
+      padding:30px;
+      text-align:center;
+      transition:0.4s;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .card h3{
+      color:var(--gold);
+      margin-bottom:12px;
+      font-size:22px;
+    }
+
+    .card p{
+      font-size:14px;
+      color:#ccc;
+    }
+
+    /* ===== TEMPLATES ===== */
+    .templates{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .template{
+      background:#0e3024;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .template img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .template div{
+      padding:20px;
+    }
+
+    .template h4{
+      color:var(--gold);
+      margin-bottom:8px;
+    }
+
+    .template button{
+      margin-top:12px;
+      padding:10px 22px;
+      border-radius:20px;
+      border:1px solid var(--gold);
+      background:transparent;
+      color:var(--gold);
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .template button:hover{
+      background:var(--gold);
+      color:#000;
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      background:#081a14;
+      padding:40px 60px;
+      text-align:center;
+      color:#aaa;
+      font-size:14px;
+    }
+
+    footer span{
+      color:var(--gold);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:768px){
+      header{padding:16px 30px;}
+      .hero h1{font-size:38px;}
+      .section{padding:60px 30px;}
+    }
+  </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="top-header">
-  <div class="logo-area">
-    <span class="brand-name">Digital Invites</span>
-  </div>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Digital Invite</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Templates</a>
+      <a href="#">Videos</a>
+      <a href="#">Pricing</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
 
-  <nav class="menu">
-    <a href="#">Home</a>
-    <a href="#">Templates</a>
-    <a href="#">Pricing</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
-
-<div class="search-bar">
-  <input type="text" placeholder="Search invitations">
-</div>
-
-<!-- HERO SLIDER -->
-<section class="hero">
-  <button class="arrow left">&lt;</button>
-  <div class="hero-text">
+  <!-- HERO -->
+  <section class="hero">
     <h1>Premium Digital Invitations</h1>
-    <p>Wedding * Birthday * Naming * All Events</p>
-  </div>
-  <button class="arrow right">&gt;</button>
-</section>
+    <p>Create elegant wedding, birthday, engagement & festival invitations with our luxury green & gold designs.</p>
+    <button>Explore Templates</button>
+  </section>
 
-<!-- TYPES OF INVITATION -->
-<section class="types">
-  <h2>Types of Invitations</h2>
-  <div class="type-grid">
-    <div class="type-card">Wedding</div>
-    <div class="type-card">Birthday</div>
-    <div class="type-card">Naming</div>
-    <div class="type-card">Engagement</div>
-  </div>
-</section>
+  <!-- CATEGORIES -->
+  <section class="section">
+    <h2>Invitation Categories</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Wedding Invites</h3>
+        <p>Luxury wedding invitation cards & videos.</p>
+      </div>
+      <div class="card">
+        <h3>Birthday Invites</h3>
+        <p>Modern & fun birthday invitation designs.</p>
+      </div>
+      <div class="card">
+        <h3>Engagement</h3>
+        <p>Elegant engagement & ring ceremony invites.</p>
+      </div>
+      <div class="card">
+        <h3>Festivals</h3>
+        <p>Diwali, Eid, Navratri & more premium invites.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- TEMPLATE SECTION -->
-<section class="templates">
-  <h2>Free Templates to Edit</h2>
-  <div class="template-grid">
-    <div class="template-card"></div>
-    <div class="template-card"></div>
-    <div class="template-card"></div>
-    <div class="template-card"></div>
-  </div>
-</section>
+  <!-- TEMPLATES -->
+  <section class="section">
+    <h2>Popular Templates</h2>
+    <div class="templates">
+      <div class="template">
+        <img src="https://via.placeholder.com/400x250" alt="Template">
+        <div>
+          <h4>Royal Wedding Card</h4>
+          <button>Edit Now</button>
+        </div>
+      </div>
+      <div class="template">
+        <img src="https://via.placeholder.com/400x250" alt="Template">
+        <div>
+          <h4>Birthday Party Invite</h4>
+          <button>Edit Now</button>
+        </div>
+      </div>
+      <div class="template">
+        <img src="https://via.placeholder.com/400x250" alt="Template">
+        <div>
+          <h4>Engagement Ceremony</h4>
+          <button>Edit Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- ABOUT -->
-<section class="about">
-  <h2>About Digital Invites</h2>
-  <p>
-    We create premium digital and video invitation cards for all occasions.
-    Easy to customize, beautiful to share, and perfect for modern celebrations.
-  </p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>(c) 2026 Digital Invites. All Rights Reserved.</p>
-  <div class="socials">
-    <span>IG</span>
-    <span>FB</span>
-    <span>YT</span>
-    <span>WA</span>
-  </div>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 <span>Digital Invite</span>. All Rights Reserved.
+  </footer>
 
 </body>
 </html>
