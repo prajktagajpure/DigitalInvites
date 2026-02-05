@@ -10,9 +10,9 @@
 
   <style>
     :root{
-      --green:#0f3d2e;          /* premium green */
+      --green:#0f3d2e;
       --green-light:#145c44;
-      --gold:#d4af37;           /* gold text */
+      --gold:#d4af37;
       --bg:#0b1f18;
       --white:#f5f5f5;
     }
@@ -27,14 +27,15 @@
     body{
       background:var(--bg);
       color:var(--white);
+      overflow-x:hidden;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (ANDROID STYLE) ===== */
     header{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      padding:18px 60px;
+      justify-content:space-between;
+      padding:14px 18px;
       background:linear-gradient(90deg,var(--green),var(--green-light));
       position:sticky;
       top:0;
@@ -43,168 +44,194 @@
 
     .logo{
       font-family:'Playfair Display',serif;
-      font-size:26px;
+      font-size:22px;
       font-weight:700;
       color:var(--gold);
-      letter-spacing:1px;
     }
 
-    nav a{
-      color:var(--white);
-      margin-left:28px;
-      text-decoration:none;
-      font-weight:500;
+    .hamburger{
+      width:30px;
+      cursor:pointer;
+    }
+
+    .hamburger span{
+      display:block;
+      height:3px;
+      background:var(--gold);
+      margin:6px 0;
+      border-radius:3px;
       transition:0.3s;
     }
 
-    nav a:hover{
+    /* ===== MOBILE DRAWER MENU ===== */
+    .drawer{
+      position:fixed;
+      top:0;
+      right:-260px;
+      width:260px;
+      height:100vh;
+      background:#0e3024;
+      box-shadow:-10px 0 30px rgba(0,0,0,0.6);
+      padding:80px 20px;
+      transition:0.4s;
+      z-index:999;
+    }
+
+    .drawer.active{
+      right:0;
+    }
+
+    .drawer a{
+      display:block;
+      padding:16px 10px;
+      color:var(--white);
+      text-decoration:none;
+      font-size:16px;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    .drawer a:hover{
       color:var(--gold);
+    }
+
+    .overlay{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100vh;
+      background:rgba(0,0,0,0.6);
+      display:none;
+      z-index:998;
+    }
+
+    .overlay.active{
+      display:block;
     }
 
     /* ===== HERO ===== */
     .hero{
-      padding:100px 60px;
+      padding:70px 20px;
       text-align:center;
       background:radial-gradient(circle at top, #124b39, var(--bg));
     }
 
     .hero h1{
       font-family:'Playfair Display',serif;
-      font-size:52px;
+      font-size:32px;
       color:var(--gold);
-      margin-bottom:20px;
+      margin-bottom:16px;
     }
 
     .hero p{
-      font-size:18px;
-      max-width:700px;
-      margin:0 auto 40px;
+      font-size:15px;
+      margin-bottom:26px;
       color:#ddd;
     }
 
     .hero button{
-      padding:14px 34px;
+      padding:12px 30px;
       background:var(--gold);
       border:none;
-      color:#000;
-      font-size:16px;
+      border-radius:25px;
       font-weight:600;
-      border-radius:30px;
       cursor:pointer;
-      transition:0.3s;
     }
 
-    .hero button:hover{
-      background:#b8962e;
-    }
-
-    /* ===== CATEGORIES ===== */
+    /* ===== SECTIONS ===== */
     .section{
-      padding:80px 60px;
+      padding:50px 20px;
     }
 
     .section h2{
       text-align:center;
       font-family:'Playfair Display',serif;
-      font-size:38px;
+      font-size:26px;
       color:var(--gold);
-      margin-bottom:50px;
+      margin-bottom:30px;
     }
 
     .cards{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
     }
 
     .card{
       background:linear-gradient(180deg,#123f31,#0c2a20);
-      border-radius:20px;
-      padding:30px;
+      border-radius:16px;
+      padding:20px;
       text-align:center;
-      transition:0.4s;
-      box-shadow:0 10px 25px rgba(0,0,0,0.4);
-    }
-
-    .card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 20px 40px rgba(0,0,0,0.6);
     }
 
     .card h3{
       color:var(--gold);
-      margin-bottom:12px;
-      font-size:22px;
+      font-size:16px;
+      margin-bottom:6px;
     }
 
     .card p{
-      font-size:14px;
+      font-size:13px;
       color:#ccc;
     }
 
     /* ===== TEMPLATES ===== */
     .templates{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
+      grid-template-columns:1fr;
+      gap:20px;
     }
 
     .template{
       background:#0e3024;
-      border-radius:20px;
+      border-radius:18px;
       overflow:hidden;
-      transition:0.3s;
     }
 
     .template img{
       width:100%;
-      height:220px;
+      height:200px;
       object-fit:cover;
     }
 
     .template div{
-      padding:20px;
+      padding:16px;
     }
 
     .template h4{
       color:var(--gold);
-      margin-bottom:8px;
+      font-size:16px;
     }
 
     .template button{
-      margin-top:12px;
+      margin-top:10px;
       padding:10px 22px;
       border-radius:20px;
       border:1px solid var(--gold);
       background:transparent;
       color:var(--gold);
       cursor:pointer;
-      transition:0.3s;
-    }
-
-    .template button:hover{
-      background:var(--gold);
-      color:#000;
     }
 
     /* ===== FOOTER ===== */
     footer{
       background:#081a14;
-      padding:40px 60px;
+      padding:24px;
       text-align:center;
+      font-size:13px;
       color:#aaa;
-      font-size:14px;
     }
 
-    footer span{
-      color:var(--gold);
-    }
+    footer span{color:var(--gold);}
 
-    /* ===== RESPONSIVE ===== */
-    @media(max-width:768px){
-      header{padding:16px 30px;}
-      .hero h1{font-size:38px;}
-      .section{padding:60px 30px;}
+    /* ===== DESKTOP ===== */
+    @media(min-width:769px){
+      .hamburger{display:none;}
+      .drawer,.overlay{display:none;}
+
+      header{padding:18px 60px;}
+
+      .logo{font-size:26px;}
     }
   </style>
 </head>
@@ -213,42 +240,38 @@
   <!-- HEADER -->
   <header>
     <div class="logo">Digital Invite</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Templates</a>
-      <a href="#">Videos</a>
-      <a href="#">Pricing</a>
-      <a href="#">Login</a>
-    </nav>
+    <div class="hamburger" onclick="toggleDrawer()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
+
+  <!-- OVERLAY -->
+  <div class="overlay" onclick="toggleDrawer()"></div>
+
+  <!-- DRAWER MENU -->
+  <div class="drawer" id="drawer">
+    <a href="#">Home</a>
+    <a href="#">Templates</a>
+    <a href="#">Login</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
     <h1>Premium Digital Invitations</h1>
-    <p>Create elegant wedding, birthday, engagement & festival invitations with our luxury green & gold designs.</p>
+    <p>Luxury wedding, birthday & festival invitation designs made for mobile users.</p>
     <button>Explore Templates</button>
   </section>
 
   <!-- CATEGORIES -->
   <section class="section">
-    <h2>Invitation Categories</h2>
+    <h2>Categories</h2>
     <div class="cards">
-      <div class="card">
-        <h3>Wedding Invites</h3>
-        <p>Luxury wedding invitation cards & videos.</p>
-      </div>
-      <div class="card">
-        <h3>Birthday Invites</h3>
-        <p>Modern & fun birthday invitation designs.</p>
-      </div>
-      <div class="card">
-        <h3>Engagement</h3>
-        <p>Elegant engagement & ring ceremony invites.</p>
-      </div>
-      <div class="card">
-        <h3>Festivals</h3>
-        <p>Diwali, Eid, Navratri & more premium invites.</p>
-      </div>
+      <div class="card"><h3>Wedding</h3><p>Royal invites</p></div>
+      <div class="card"><h3>Birthday</h3><p>Party designs</p></div>
+      <div class="card"><h3>Engagement</h3><p>Elegant cards</p></div>
+      <div class="card"><h3>Festival</h3><p>Premium wishes</p></div>
     </div>
   </section>
 
@@ -257,25 +280,8 @@
     <h2>Popular Templates</h2>
     <div class="templates">
       <div class="template">
-        <img src="https://via.placeholder.com/400x250" alt="Template">
-        <div>
-          <h4>Royal Wedding Card</h4>
-          <button>Edit Now</button>
-        </div>
-      </div>
-      <div class="template">
-        <img src="https://via.placeholder.com/400x250" alt="Template">
-        <div>
-          <h4>Birthday Party Invite</h4>
-          <button>Edit Now</button>
-        </div>
-      </div>
-      <div class="template">
-        <img src="https://via.placeholder.com/400x250" alt="Template">
-        <div>
-          <h4>Engagement Ceremony</h4>
-          <button>Edit Now</button>
-        </div>
+        <img src="https://via.placeholder.com/400x250" />
+        <div><h4>Royal Wedding Card</h4><button>Edit Now</button></div>
       </div>
     </div>
   </section>
@@ -284,6 +290,13 @@
   <footer>
     © 2026 <span>Digital Invite</span>. All Rights Reserved.
   </footer>
+
+  <script>
+    function toggleDrawer(){
+      document.getElementById('drawer').classList.toggle('active');
+      document.querySelector('.overlay').classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>
